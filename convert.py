@@ -36,16 +36,14 @@ def Rev_Matrix(input, typ):
     typ = int(typ)
     table = input
 
-    for item in table:
+    for j,item in enumerate(table):
         for i in range(len(item)):
 
             if (i+1) % 5 == 0:
                 pass
             else:
-                if item[i] == 1:
-                    b = [table.index(item)+1, ((i+1) // 5)+1,
-                        (i+1) % 5]
-
+                if item[i] != 0:
+                    b = [j+1, ((i+1) // 5)+1, (i+1) % 5,item[i]]
                     reversed_table.append(b)
                 else:
                     pass
