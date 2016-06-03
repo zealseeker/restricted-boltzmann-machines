@@ -9,7 +9,7 @@ training_data = np.array(get_data.training_data)
 
 #training_data = np.array([[1,1,1,0,0,0],[1,0,1,0,0,0],[1,1,1,0,0,0],[0,0,1,1,1,0], [0,0,1,1,0,0],[0,0,1,1,1,0]])
 num_visible = training_data.shape[1]
-r = RBM(num_visible = num_visible, num_hidden = 2, learning_rate=0.1)
+r = RBM(num_visible = num_visible, num_hidden = 100, learning_rate=0.01)
 r.train(training_data,max_epochs=1000)
 print 'r.weights'
 print r.weights
@@ -23,7 +23,7 @@ for mirna in training_data:
             p_visible[0][i]=0
     scores.append(p_visible)
 
-results = convert.Rev_Matrix(scores)
+results = convert.Rev_Matrix(scores,5)
 
 fpw=open('result.txt','wb')
 for line in results:
